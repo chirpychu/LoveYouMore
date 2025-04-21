@@ -1,0 +1,188 @@
+/* General page styles */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to top right, #ff9a9e, #fad0c4);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    text-align: center;
+    background: white;
+    padding: 20px;  /* Reduced padding to make the container smaller */
+    border-radius: 15px;  /* Reduced border radius to make it less rounded */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: popIn 1s ease-in-out;
+    max-width: 80%; /* Limit the width of the container to 80% */
+  }
+  
+  @keyframes popIn {
+    0% {
+      transform: scale(0.6);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  h1 {
+    font-size: 2.5rem;  /* Slightly smaller font size */
+    color: #ff4e7a;
+  }
+  
+  .message {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 15px;  /* Reduced margin to make everything fit */
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ff6f91;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background-color: #ff4e7a;
+  }
+  
+  /* Popup Message */
+  #popup {
+    margin-top: 15px;  /* Reduced margin */
+    color: #ff4e7a;
+    font-weight: bold;
+    transition: all 0.5s;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .bear-img {
+    width: 180px;  /* Reduced the image size to fit better */
+    margin-top: 15px;  /* Reduced margin */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .final-pop {
+    font-size: 1.6rem;  /* Reduced font size */
+    font-weight: bold;
+    color: #fff;
+    background: radial-gradient(circle, #ff4e7a, #ff6f91);
+    padding: 15px;  /* Reduced padding */
+    border-radius: 15px;  /* Reduced border radius */
+    margin-top: 20px;  /* Reduced margin */
+    box-shadow: 0 0 25px #ff4e7a;
+    animation: surprisePop 1s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.5);
+    text-align: center;
+  }
+  
+  .final-pop.show {
+    opacity: 1;
+  }
+  
+  @keyframes surprisePop {
+    0% {
+      transform: scale(0.5) rotate(-10deg);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.2) rotate(10deg);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1) rotate(0);
+    }
+  }
+  
+  /* Heart sprinkle animation */
+  .heart-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+    display: none;
+    animation: heartRain 1s forwards;
+  }
+  
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: floatHearts 3s linear infinite;
+    opacity: 0.8;
+  }
+  
+  .heart::before,
+  .heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+  }
+  
+  .heart::before {
+    top: -10px;
+    left: 0;
+  }
+  
+  .heart::after {
+    left: -10px;
+    top: 0;
+  }
+  
+  @keyframes floatHearts {
+    0% {
+      transform: translateY(0) rotate(45deg) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) rotate(45deg) scale(0.5);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes heartRain {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  

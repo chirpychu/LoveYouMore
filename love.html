@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hi BUBU :3</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Hi BUBU :3</h1>
+
+    <!-- 🧸 Dudu the Bear -->
+    <img src="dudububu.jpeg" alt="Dudu the Brown Bear" class="bear-img" />
+
+    <p class="message">You're the sunshine in my life ☀️</p>
+
+    <button id="loveButton">Click Me 💌</button>
+
+    <div id="popup" class="hidden">
+      <p>Every time you click, I love you more 😘</p>
+    </div>
+
+    <div id="finalMessage" class="hidden final-pop">
+      <p>I really love you ❤️😘</p>
+    </div>
+  </div>
+
+  <!-- Heart Sprinkle -->
+  <div class="heart-container hidden" id="heartRain">
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+  </div>
+
+  <script>
+    const button = document.getElementById("loveButton");
+    const popup = document.getElementById("popup");
+    const finalMessage = document.getElementById("finalMessage");
+    const heartRain = document.getElementById("heartRain");
+
+    let clickCount = 0;
+
+    button.addEventListener("click", () => {
+      clickCount++;
+
+      // Grow the button each time
+      const newSize = 1 + clickCount * 0.2;
+      button.style.transform = `scale(${newSize})`;
+
+      // Toggle popup
+      if (clickCount < 3) {
+        popup.classList.remove("hidden");
+      } else {
+        popup.classList.add("hidden");
+        finalMessage.classList.remove("hidden");
+        finalMessage.classList.add("show");
+
+        button.disabled = true;
+
+        // 🌧️ Start heart sprinkle after final message
+        setTimeout(() => {
+          heartRain.classList.remove("hidden");
+        }, 500); // 500ms delay after final message
+
+        // Stop heart sprinkle after 4 seconds
+        setTimeout(() => {
+          heartRain.classList.add("hidden");
+        }, 4000); // 4 seconds of heart sprinkle
+      }
+    });
+  </script>
+</body>
+</html>
